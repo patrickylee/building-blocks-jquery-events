@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Events</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body>
+    <div class='allContents'>
+      <h1>Registration Form</h1>
+      <h3>Province of Ontario</h3>
+      <form>
+        <label>Name</label>
+        <br>
+        <input type="text" name="text" id="name">
+        <br><br>
+        <label>Email</label><br>
+        <input type="text" name="text" id="email">
+        <br><br>
+        <label>Sex</label>
+        <br>
+        <select id="sex" name="sex">
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+        <br><br>
+        <input class="submitButton" type="submit" value="Submit">
+      </form>
+      <br><br>
+    </div>
+
+    <div class='hideButtonContainer'>
+      <button id="hideButton">Hide All</button>
+    </div>
+
+    <br><br>
+    <div class='hoverButtonContainer'>
+      <button id="hoverButton">Hover Above Me</button>
+    </div>
+
+    <br>
+    <div class='mouseEventsContainer'>
+      <h2>Mouse Events</h2>
+      <p>Thank you for your answer. I tried this, i don't have the error anymore but
+        auto completion doesn't work. In the script tags, do i have acces to the
+        autoComp variable sent by the server ? When i try to print the variable in
+        it works so it seems to be sent, but in tags it doesn't seem to be working.
+        I updated the code to let you see what i have now.
+      </p>
+    </div>
+
+    <br>
+    <h3 id="cursor"></h3>
+
+    <script>
+      $(document).ready(function() {
+
+        // Console Log all user-inputted values upon clicking Submit button
+        $('.submitButton').on('click', function(e) {
+          e.preventDefault();
+          var name = $('#name').val();
+          var email = $('#email').val();
+          var sex = $('#sex').val();
+          console.log(name, email, sex);
+        });
+
+        // Show/Hide Click  Functionality for Button
+        $('#hideButton').on('click', function() {
+          var idName = $('#hideButton').attr('id');
+          if (idName == 'hideButton') {
+            $('.allContents').hide();
+            $('#hideButton').attr('id', 'none');
+          } else {
+            $('.allContents').show();
+            $('#none').attr('id', 'hideButton');
+          }
+        })
+
+        // Show/Hide Hover Functionality for Hover Button
+        $('#hoverButton').hover(function() {
+          $('.mouseEventsContainer').toggle();
+        });
+
+        // Change background color when selecting the name input box
+        $('#name').focus(function() {
+          $(this).css('background', 'pink');
+        });
+
+        // Revert background color when clicking out of the name input box
+        $('#name').blur(function() {
+          $(this).css('background', 'white');
+        });
+
+        // Change background color when selecting the email input box
+        $('#email').focus(function() {
+          $(this).css('background', 'pink');
+        });
+
+        // Revert background color when clicking out of the email input box
+        $('#email').blur(function() {
+          $(this).css('background', 'white');
+        });
+
+        // Display current x and y coordinates real-time into h3 element
+        $('*').on('mousemove', function(e) {
+          var x = e.clientX;
+          var y = e.clientY;
+          $('#cursor').html('Coordinate-X: ' + x + '<br>Coordinate-Y: ' + y);
+        })
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+  h1 {
+    font-family: 'Avenir';
+  }
+  h3 {
+    font-family:'Avenir-Light';
+  }
+  form {
+    font-family: 'Avenir-Medium';
+  }
+  input {
+    font-size:18px;
+  }
+  select {
+    font-size:15px;
+  }
+  div {
+    text-align: center;
+  }
+  .hideButtonContaner {
+    text-align: center;
+  }
+  .hoverButtonContainer {
+    text-align: center;
+  }
+  .mouseEventsContainer {
+    text-align: center;
+  }
+  .mouseEventsContainer h2 {
+    font-family: 'Avenir-Medium';
+  }
+  .mouseEventsContainer p {
+    padding-left: 20%;
+    padding-right: 20%;
+    font-family: 'Avenir-Light';
+  }
+  #hoverButton {
+    text-align: center;
+  }
+  h3 {
+    text-align: center;
+  }
